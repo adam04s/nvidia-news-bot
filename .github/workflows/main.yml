@@ -1,0 +1,27 @@
+name: Nvidia News Bot
+
+on:
+  schedule:
+    - cron: '0 */4 * * *' # รันทุก 4 ชั่วโมง
+  workflow_dispatch:      # ปุ่มกดรันมือ
+
+jobs:
+  run-news-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Run bot script
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python bot.py
