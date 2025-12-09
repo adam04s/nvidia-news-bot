@@ -47,8 +47,6 @@ def check_news():
         print("Error:", data)
 
 if __name__ == "__main__":
-    # --- เพิ่มบรรทัดนี้เพื่อทดสอบ ---
-    send_discord_notify("ทดสอบบอท", "https://google.com", "Test Message") 
-    # ---------------------------
-    print(f"กำลังสแกนหาข่าว: {KEYWORDS}...")
+
     check_news()
+
