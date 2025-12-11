@@ -1,4 +1,3 @@
-แก้ตรงไหน
 "import requests
 import datetime
 import json
@@ -51,3 +50,4 @@ if __name__ == "__main__":
 
     check_news()
 "
+
